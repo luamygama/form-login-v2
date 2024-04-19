@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page | theuicode.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="login2.css">
+</head>
+ 
+<body>
+    <div class="container">
+        <div class="design">
+            <div class="pill-1 rotate-45"></div>
+            <div class="pill-2 rotate-45"></div>
+            <div class="pill-3 rotate-45"></div>
+            <div class="pill-4 rotate-45"></div>
+        </div>
+        <div class="login">
+            <h3 class="title">User Login</h3>
+            <div class="text-input">
+                <i class="ri-user-fill"></i>
+                <input type="text" id="username" placeholder="Username"> <!-- Adicionado ID "username" -->
+            </div>
+            <div class="text-input">
+                <i class="ri-lock-fill"></i>
+                <input type="password" id="password" placeholder="Password"> <!-- Adicionado ID "password" -->
+            </div>
+            <button class="login-btn" onclick="validarLogin()">LOGIN</button>
+            <a href="recuperação.html" id="forgotPassword">Esqueci minha senha</a>
+            <a href="cadastrar.html" id="forgotPassword">Não tem cadastro? Cadastre-se</a>
+            
+        </div>
+    </div>
+    <script>
+        function validarLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+ 
+            if (username.trim() === "" || password.trim() === "") {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+                return false;
+            }
+ 
+            // Aqui você pode adicionar a lógica para o login
+            // Por exemplo, enviar os dados para um servidor para autenticação
+            // Ou apenas mostrar uma mensagem de sucesso
+            alert("Login bem sucedido!");
+        }
+    </script>
+</body>
+ 
+</html
