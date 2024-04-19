@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperação de Senha</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffebee; /* Cor de fundo rosa claro */
+            color: #880e4f; /* Cor do texto rosa escuro */
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn-primary {
+            background-color: #f50057; /* Cor de fundo do botão rosa */
+            border-color: #f50057; /* Cor da borda do botão rosa */
+        }
+        .btn-primary:hover {
+            background-color: #c51162; /* Cor de fundo do botão rosa ao passar o mouse */
+            border-color: #c51162; /* Cor da borda do botão rosa ao passar o mouse */
+        }
+        .btn-back {
+            background-color: transparent;
+            border: none;
+            color: #f50057; /* Cor do texto rosa escuro */
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .btn-back:hover {
+            color: #c51162; /* Cor do texto rosa claro ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Recuperação de Senha</h2>
+                <a href="login2.html" class="btn btn-back mb-3">Voltar</a>
+                <form id="recoveryForm">
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="inputEmail" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Enviar E-mail de Recuperação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="recovery.js"></script>
+</body>
+</html>
