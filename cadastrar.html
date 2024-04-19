@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8d7da; /* Cor de fundo rosa claro */
+            color: #721c24; /* Cor do texto rosa escuro */
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .form-control:focus {
+            border-color: #721c24; /* Cor da borda do campo em foco */
+            box-shadow: 0 0 0 0.25rem rgba(114, 28, 36, 0.25); /* Sombra do campo em foco */
+        }
+        .btn-primary {
+            background-color: #721c24; /* Cor de fundo do botão */
+            border-color: #721c24; /* Cor da borda do botão */
+        }
+        .btn-primary:hover {
+            background-color: #b71c1c; /* Cor de fundo do botão ao passar o mouse */
+            border-color: #b71c1c; /* Cor da borda do botão ao passar o mouse */
+        }
+        .btn-back {
+            background-color: transparent;
+            border: none;
+            color: #721c24;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .btn-back:hover {
+            color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Cadastro de Usuário</h2>
+                <a href="login2.html" class="btn btn-back mb-3"><i class="fas fa-arrow-left"></i> Voltar</a>
+                <form id="registerForm">
+                    <div class="mb-3">
+                        <label for="inputName" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="inputName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="inputEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword" class="form-label">Senha</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="inputPassword" required>
+                            <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirmar Senha</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                            <button class="btn btn-outline-secondary" type="button" id="showConfirmPasswordBtn">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>
+
