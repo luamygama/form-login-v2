@@ -7,35 +7,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            background-color: #f8d7da; /* Cor de fundo rosa claro */
-            color: #721c24; /* Cor do texto rosa escuro */
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .form-control:focus {
-            border-color: #721c24; /* Cor da borda do campo em foco */
-            box-shadow: 0 0 0 0.25rem rgba(114, 28, 36, 0.25); /* Sombra do campo em foco */
-        }
-        .btn-primary {
-            background-color: #721c24; /* Cor de fundo do botão */
-            border-color: #721c24; /* Cor da borda do botão */
-        }
-        .btn-primary:hover {
-            background-color: #b71c1c; /* Cor de fundo do botão ao passar o mouse */
-            border-color: #b71c1c; /* Cor da borda do botão ao passar o mouse */
-        }
-        .btn-back {
-            background-color: transparent;
-            border: none;
-            color: #721c24;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        .btn-back:hover {
-            color: #b71c1c;
-        }
+        body { background-color: #f8d7da; color: #721c24; }
+        .container { margin-top: 20px; }
+        .form-control:focus { border-color: #721c24; box-shadow: 0 0 0 0.25rem rgba(114, 28, 36, 0.25); }
+        .btn-primary { background-color: #721c24; border-color: #721c24; }
+        .btn-primary:hover { background-color: #b71c1c; border-color: #b71c1c; }
+        .btn-back { background-color: transparent; border: none; color: #721c24; text-decoration: underline; cursor: pointer; }
+        .btn-back:hover { color: #b71c1c; }
     </style>
 </head>
 <body>
@@ -54,29 +32,56 @@
                         <input type="email" class="form-control" id="inputEmail" required>
                     </div>
                     <div class="mb-3">
+                        <label for="inputCPF" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="inputCPF" maxlength="14" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="inputPassword" class="form-label">Senha</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="inputPassword" required>
-                            <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn">
-                                <i class="fas fa-eye"></i>
-                            </button>
+                            <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn"><i class="fas fa-eye"></i></button>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="confirmPassword" class="form-label">Confirmar Senha</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="confirmPassword" required>
-                            <button class="btn btn-outline-secondary" type="button" id="showConfirmPasswordBtn">
-                                <i class="fas fa-eye"></i>
-                            </button>
+                            <button class="btn btn-outline-secondary" type="button" id="showConfirmPasswordBtn"><i class="fas fa-eye"></i></button>
                         </div>
+                        <div id="passwordMatchAlert" class="alert alert-danger d-none mt-2" role="alert">As senhas não coincidem. Por favor, insira senhas iguais.</div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
                 </form>
             </div>
         </div>
     </div>
-    <script src="register.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#inputCPF').on('input', function() {
+                var cpf = $(this).val().replace(/\D/g, ''); // Remove caracteres não numéricos
+                if (cpf.length > 3 && cpf.length <= 6) {
+                    cpf = cpf.replace(/(\d{3})(\d{0,3})/, '$1.$2');
+                } else if (cpf.length > 6 && cpf.length <= 9) {
+                    cpf = cpf.replace(/(\d{3})(\d{3})(\d{0,3})/, '$1.$2.$3');
+                } else if (cpf.length > 9 && cpf.length <= 11) {
+                    cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
+                }
+                $(this).val(cpf);
+            });
+            
+            $('#registerForm').submit(function(event) {
+                var password = $('#inputPassword').val();
+                var confirmPassword = $('#confirmPassword').val();
+                if (password !== confirmPassword) {
+                    $('#passwordMatchAlert').removeClass('d-none');
+                    event.preventDefault();
+                } else {
+                    $('#passwordMatchAlert').addClass('d-none');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-

@@ -52,3 +52,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+$(document).ready(function() {
+    $('#registerForm').submit(function(event) {
+        var password = $('#inputPassword').val();
+        var confirmPassword = $('#confirmPassword').val();
+
+        if (password !== confirmPassword) {
+            $('#passwordMatchAlert').removeClass('d-none');
+            event.preventDefault();
+        } else {
+            $('#passwordMatchAlert').addClass('d-none');
+        }
+    });
+});
+
